@@ -8,54 +8,31 @@ const musics = {
     fireplaceMusic: new Audio('./music/Lareira.wav')
 }
 
-export function forestSound() {
-    musicButtons.forestButton.classList.toggle('music-on')
+function toggleSound(music, button) {
+    button.classList.toggle('music-on')
 
-    if(state.isMute) {
-        musics.forestMusic.play()
+    if (state.isMute) {
+        music.play()
     } else {
-        musics.forestMusic.pause()
+        music.pause()
     }
 
     state.isMute = !state.isMute
-    musics.forestMusic.loop = true
+    music.loop = true
+}
+
+export function forestSound() {
+    toggleSound(musics.forestMusic, musicButtons.forestButton)
 }
 
 export function rainSound() {
-    musicButtons.rainButton.classList.toggle('music-on')
-
-    if(state.isMute) {
-        musics.rainMusic.play()
-    } else {
-        musics.rainMusic.pause()
-    }
-
-    state.isMute = !state.isMute
-    musics.rainMusic.loop = true
+    toggleSound(musics.rainMusic, musicButtons.rainButton)
 }
 
 export function fireplaceSound() {
-    musicButtons.fireplaceButton.classList.toggle('music-on')
-
-    if(state.isMute) {
-        musics.fireplaceMusic.play()
-    } else {
-        musics.fireplaceMusic.pause()
-    }
-
-    state.isMute = !state.isMute
-    musics.fireplaceMusic.loop = true
+    toggleSound(musics.fireplaceMusic, musicButtons.fireplaceButton)
 }
 
 export function coffeeShopSound() {
-    musicButtons.coffeeButton.classList.toggle('music-on')
-
-    if(state.isMute) {
-        musics.coffeeShopMusic.play()
-    } else {
-        musics.coffeeShopMusic.pause()
-    }
-
-    state.isMute = !state.isMute
-    musics.coffeeShopMusic.loop = true
+    toggleSound(musics.coffeeShopMusic, musicButtons.coffeeButton)
 }
